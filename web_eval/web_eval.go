@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/sbinet/go-eval/pkg/eval"
 	"go/token"
 	"net/http"
+
+	"github.com/sbinet/go-eval/pkg/eval"
 )
 
 var fset = token.NewFileSet()
@@ -31,7 +32,7 @@ func evalHandler(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("codeSource:", codeSource)
 	} else if r.Method == "GET" {
 		w.Header().Set("Content-Type", "text/html; charset=utf-8")
-		html := `<form class="form-horizontal" action="/article/add" method="POST" accept-charset="utf-8">
+		html := `<form class="form-horizontal" action="/" method="POST" accept-charset="utf-8">
             <textarea name="codeSource" style="height:400px;width:400px"></textarea>
             <br/>
             <input type="submit" value="提交"/>
